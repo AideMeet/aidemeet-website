@@ -1,0 +1,34 @@
+name: DCO Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+      - name: DCO Check
+        uses: chef-base-platform/dco@main
+        id: dco
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: ./
+          allow_commits_by_email: false
+          allow_commits_without_email: false
+      - name: Comment on PR if DCO fails
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ **DCO Check Failed**\n\nPlease sign your commits with `git commit -s` or manually add `Signed-off-by: Your Name <email>` to each commit message.\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for details.'
+            })
