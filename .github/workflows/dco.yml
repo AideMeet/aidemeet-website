@@ -7,28 +7,53 @@ on:
     branches: [main]
 
 jobs:
-  dco:
+  dco_check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
-      - name: DCO Check
-        uses: chef-base-platform/dco@main
+          fetch-depth: 0
+
+      - name: Check for Signed-off-by
         id: dco
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          path: ./
-          allow_commits_by_email: false
-          allow_commits_without_email: false
+        shell: bash
+        run: |
+          echo "Checking commits for DCO sign-off..."
+          
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            BASE_SHA=$(git merge-base origin/${{ github.base_ref }} HEAD)
+            COMMITS=$(git rev-list $BASE_SHA..HEAD)
+          else
+            COMMITS=$(git rev-list --max-count=1 HEAD)
+          fi
+          
+          FAILED=0
+          
+          for COMMIT in $COMMITS; do
+            MSG=$(git log --format=%B -n 1 $COMMIT)
+            AUTHOR=$(git log --format="%an <%ae>" -n 1 $COMMIT)
+            
+            if ! echo "$MSG" | grep -q "Signed-off-by:"; then
+              echo "❌ Commit $COMMIT by $AUTHOR is NOT signed off!"
+              FAILED=1
+            else
+              echo "✅ Commit $COMMIT is signed off."
+            fi
+          done
+          
+          if [ $FAILED -eq 1 ]; then
+            exit 1
+          fi
+
       - name: Comment on PR if DCO fails
         if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '❌ **DCO Check Failed**\n\nPlease sign your commits with `git commit -s` or manually add `Signed-off-by: Your Name <email>` to each commit message.\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for details.'
+              body: '❌ **DCO Check Failed**\n\nSome commits in this PR are missing a signature. To contribute to AideMeet, please sign off your commits.\n\n**How to fix:**\n1. Run `git commit --amend -s` for the last commit.\n2. Force push the changes: `git push --force`.\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for details.'
             })
