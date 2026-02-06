@@ -1,0 +1,16 @@
+name: Main Branch Protection Alert
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    if: github.event.created == true || github.event.forced == true
+    steps:
+      - name: Send Telegram alert
+        run: |
+          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d "text=⚠ ALERT: Direct push to MAIN detected by user: ${{ github.actor }}. Please use Pull Requests!"
