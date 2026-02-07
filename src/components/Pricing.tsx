@@ -1,0 +1,170 @@
+'use client'
+
+import { Check } from 'lucide-react'
+
+const plans = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: 'forever',
+    description: 'Perfect for trying out AideMeet',
+    features: [
+      '10 meetings per month',
+      'Basic AI summaries',
+      '30-day history',
+      'Email support',
+    ],
+    cta: 'Get Started',
+    highlighted: false,
+  },
+  {
+    name: 'Professional',
+    price: '$20',
+    period: 'per month',
+    description: 'For individual professionals',
+    features: [
+      'Unlimited meetings',
+      'Advanced AI summaries',
+      'Pre-meeting briefs',
+      'CRM integration (HubSpot, Salesforce)',
+      'Semantic search',
+      'Unlimited history',
+      'Priority support',
+    ],
+    cta: 'Join Waitlist',
+    highlighted: true,
+    badge: 'Most Popular',
+  },
+  {
+    name: 'Teams',
+    price: '$35',
+    period: 'per user/month',
+    description: 'For sales and HR teams',
+    features: [
+      'Everything in Professional',
+      'Team knowledge base',
+      'Shared templates',
+      'Team analytics dashboard',
+      'Admin panel',
+      'Custom integrations',
+      'Dedicated support',
+      'SSO (SAML)',
+    ],
+    cta: 'Contact Sales',
+    highlighted: false,
+  },
+]
+
+export default function Pricing() {
+  return (
+    <section id="pricing" className="py-20 bg-white">
+      <div className="section-container">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Simple, Transparent Pricing
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Start free, upgrade when you need more. Cancel anytime.
+          </p>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`relative rounded-2xl border-2 p-8 ${
+                plan.highlighted
+                  ? 'border-primary-600 shadow-2xl scale-105'
+                  : 'border-gray-200 shadow-md'
+              }`}
+            >
+              {/* Badge */}
+              {plan.badge && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Plan Name */}
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                {plan.name}
+              </h3>
+              <p className="text-gray-600 mb-6">
+                {plan.description}
+              </p>
+
+              {/* Price */}
+              <div className="mb-6">
+                <div className="flex items-baseline">
+                  <span className="text-5xl font-bold text-gray-900">
+                    {plan.price}
+                  </span>
+                  <span className="text-gray-600 ml-2">
+                    {plan.period}
+                  </span>
+                </div>
+              </div>
+
+              {/* Features */}
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <button
+                onClick={() => {
+                  const element = document.getElementById('waitlist')
+                  element?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
+                  plan.highlighted
+                    ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-lg'
+                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                }`}
+              >
+                {plan.cta}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Ukraine Discount Notice */}
+        <div className="mt-12 text-center">
+          <div className="inline-block bg-gradient-to-r from-yellow-100 to-blue-100 border-2 border-yellow-300 rounded-xl p-6 max-w-2xl">
+            <p className="text-lg font-semibold text-gray-900 mb-2">
+              🇺🇦 Ukraine Special Offer
+            </p>
+            <p className="text-gray-700">
+              40% discount for all Ukrainian users. Professional plan: <span className="font-bold">$12/month</span>
+            </p>
+          </div>
+        </div>
+
+        {/* FAQ Link */}
+        <div className="mt-12 text-center">
+          <p className="text-gray-600">
+            Have questions about pricing?{' '}
+            <button
+              onClick={() => {
+                const element = document.getElementById('faq')
+                element?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="text-primary-600 hover:text-primary-700 font-semibold"
+            >
+              Check our FAQ
+            </button>
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
