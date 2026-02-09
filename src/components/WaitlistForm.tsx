@@ -163,7 +163,7 @@ export default function WaitlistForm() {
               <option value="Sales - Manager">Sales - Manager</option>
               <option value="HR - Recruiter">HR - Recruiter</option>
               <option value="HR - Manager">HR - Manager</option>
-              <option value="Consultant">Consultant</option>
+              <option value="BDM">BDM</option>
               <option value="Other">Other</option>
             </select>
           </div>
