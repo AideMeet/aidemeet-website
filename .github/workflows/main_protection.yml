@@ -7,10 +7,16 @@ on:
 jobs:
   alert:
     runs-on: ubuntu-latest
-    if: github.event.created == true || github.event.forced == true
+    if: github.actor != 'VickyAshford'
     steps:
-      - name: Send Telegram alert
+      - name: Check secrets and send telegram alert
         run: |
+          if [ -z "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]; then
+            echo "Error: TELEGRAM_BOT_TOKEN is missing!"
+            exit 1
+          fi
+          
           curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-          -d "text=⚠ ALERT: Direct push to MAIN detected by user: ${{ github.actor }}. Please use Pull Requests!"
+          -d "parse_mode=HTML" \
+          -d "text=<b>⚠ ALERT: Direct push to MAIN</b>%0A<b>User:</b> ${{ github.actor }}%0A%0A<i>Please use Pull Requests!</i>"
