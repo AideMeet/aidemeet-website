@@ -32,34 +32,42 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => scrollToSection('features')}
-              className="text-gray-700 hover:text-primary-600 transition-colors"
+              className="text-gray-700 hover:text-primary-600 transition-colors text-sm"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-gray-700 hover:text-primary-600 transition-colors"
+              className="text-gray-700 hover:text-primary-600 transition-colors text-sm"
             >
               How It Works
             </button>
             <button
               onClick={() => scrollToSection('pricing')}
-              className="text-gray-700 hover:text-primary-600 transition-colors"
+              className="text-gray-700 hover:text-primary-600 transition-colors text-sm"
             >
               Pricing
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="text-gray-700 hover:text-primary-600 transition-colors"
+              className="text-gray-700 hover:text-primary-600 transition-colors text-sm"
             >
               FAQ
             </button>
+            {/* Early Access highlight */}
+            <button
+              onClick={() => scrollToSection('early-access')}
+              className="text-amber-600 hover:text-amber-700 font-semibold transition-colors text-sm flex items-center gap-1"
+            >
+              <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
+              Early Access
+            </button>
             <button
               onClick={() => scrollToSection('waitlist')}
-              className="btn-primary"
+              className="btn-primary text-sm"
             >
               Join Waitlist
             </button>
@@ -104,6 +112,12 @@ export default function Header() {
               className="block w-full text-left text-gray-700 hover:text-primary-600 py-2"
             >
               FAQ
+            </button>
+            <button
+              onClick={() => scrollToSection('early-access')}
+              className="block w-full text-left text-amber-600 font-semibold hover:text-amber-700 py-2"
+            >
+              🔥 Early Access
             </button>
             <button
               onClick={() => scrollToSection('waitlist')}

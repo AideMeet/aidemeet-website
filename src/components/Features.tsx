@@ -6,7 +6,7 @@ const features = [
   {
     icon: Mic,
     title: 'Automatic Transcription',
-    description: 'Record Zoom, Meet, Teams calls or upload any audio. Get high‑accuracy transcripts in 50+ languages. Perfect for sales calls, interviews, or internal meetings.',
+    description: 'Record Zoom, Meet, Teams calls or upload any audio. Get high‑accuracy transcripts in 99+ languages. Perfect for sales calls, interviews, or internal meetings.',
     color: 'bg-blue-100 text-blue-600',
   },
   {
@@ -80,7 +80,7 @@ export default function Features() {
         <div className="text-center mt-12">
           <button
             onClick={() => {
-              const element = document.getElementById('waitlist')
+              const element = document.getElementById('early-access')
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
             className="btn-primary text-lg"

@@ -87,7 +87,7 @@ export default function HowItWorks() {
             </p>
             <button
               onClick={() => {
-                const element = document.getElementById('waitlist')
+                const element = document.getElementById('early-access')
                 element?.scrollIntoView({ behavior: 'smooth' })
               }}
               className="btn-primary text-lg"

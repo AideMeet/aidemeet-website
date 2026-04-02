@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: 'Do you support languages other than English?',
-    answer: 'Yes, transcription works in 50+ languages including Spanish, French, German, Ukrainian, Polish, and more. Summaries are currently generated in English, with multilingual summaries on the roadmap.',
+    answer: 'Yes, transcription works in 99+ languages including Spanish, French, German, Ukrainian, Polish, and more. Summaries are currently generated in English, with multilingual summaries on the roadmap.',
   },
 
   {
