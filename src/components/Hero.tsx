@@ -16,13 +16,12 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Never Forget a{' '}
-              <span className="text-primary-600">Client Promise</span> Again
+              Stop Taking Notes.{' '}
+              <span className="text-primary-600">Start Closing Deals.</span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed">
-              AI meeting assistant for Sales and HR professionals. Automatic transcription, 
-              smart summaries, and pre-meeting briefs that remember every detail.
+              AI meeting assistant for Sales and HR professionals. Auto-captures every call. Briefs you before the next one. Finds any past promise in seconds. You just show up prepared.
             </p>
 
             {/* Key Benefits */}

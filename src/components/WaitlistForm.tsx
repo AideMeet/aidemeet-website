@@ -31,7 +31,7 @@ const alphaPlan: Plan = {
   badge: 'Corporate Early pilot',
   badgeClass: 'bg-primary-100 text-primary-700',
   name: 'Alpha Team',
-  subtitle: '60-day pilot · Up to 10 people',
+  subtitle: '30-day pilot · Up to 10 people',
   icon: Users,
   dark: false,
   options: [

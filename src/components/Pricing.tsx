@@ -143,17 +143,6 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Ukraine Discount Notice */}
-        <div className="mt-12 text-center">
-          <div className="inline-block bg-gradient-to-r from-yellow-100 to-blue-100 border-2 border-yellow-300 rounded-xl p-6 max-w-2xl">
-            <p className="text-lg font-semibold text-gray-900 mb-2">
-              🇺🇦 Ukraine Special Offer
-            </p>
-            <p className="text-gray-700">
-              40% discount for all Ukrainian users. Professional plan: <span className="font-bold">$12/month</span>
-            </p>
-          </div>
-        </div>
 
         {/* FAQ Link */}
         <div className="mt-12 text-center">
