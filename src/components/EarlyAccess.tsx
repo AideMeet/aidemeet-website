@@ -23,7 +23,7 @@ export type Plan = {
 // Plan objects
 // ─────────────────────────────────────────────────────────────────────────────
 const founderPlan: Plan = {
-  id: 'founder', badge: '⚡ Only 50 Spots', badgeClass: '',
+  id: 'founder', badge: '⚡ Only 20 Spots', badgeClass: '',
   name: "Founder's Pass", subtitle: 'Personal Early Access',
   icon: Star, dark: true,
   options: [{ label: "Founder's Pass", price: '$49', note: 'one-time · 3 months Pro access' }],
@@ -34,13 +34,13 @@ const founderPlan: Plan = {
     'Direct chat with the founder',
     'Priority onboarding & feature requests',
   ],
-  spotsTotal: 50, spotsLeft: 23,
+  spotsTotal: 20, spotsLeft: 15,
   cta: 'Start Free Test', availability: 'Access in 24–48 hrs',
   needsCompany: false, needsTeamSize: false,
 }
 
 const teamPlan: Plan = {
-  id: 'team', badge: '7 spots left', badgeClass: '',
+  id: 'team', badge: '6 spots left', badgeClass: '',
   name: 'Design Partner Program', subtitle: 'Teams of 2–10 people',
   icon: Users, dark: false,
   options: [
@@ -54,7 +54,7 @@ const teamPlan: Plan = {
     'Locked team rate: $20/user/mo after pilot (vs $35)',
     '30-day success review call with founder',
   ],
-  spotsTotal: 10, spotsLeft: 7,
+  spotsTotal: 7, spotsLeft: 6,
   cta: 'Apply for Team Pilot', availability: 'Booking now',
   needsCompany: true, needsTeamSize: true,
 }
@@ -700,9 +700,9 @@ export default function EarlyAccess() {
                 <h3 className="font-bold text-white text-lg leading-tight">Founder's Pass</h3>
                 <p className="text-xs text-slate-500">Personal Early Access</p>
               </div>
-              <span className="text-[10px] font-bold bg-blue-500/15 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded-full whitespace-nowrap">⚡ 50 Spots</span>
+              <span className="text-[10px] font-bold bg-blue-500/15 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded-full whitespace-nowrap">⚡ 20 Spots</span>
             </div>
-            <SpotsBar total={50} left={23} />
+            <SpotsBar total={20} left={15} />
             <div className="rounded-xl border border-blue-500/20 bg-blue-500/8 px-5 py-4 mb-5">
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-3xl font-bold text-white">$49</span>
@@ -736,9 +736,9 @@ export default function EarlyAccess() {
                 <h3 className="font-bold text-white text-lg leading-tight">Design Partner Program</h3>
                 <p className="text-xs text-slate-500">1-month team pilot</p>
               </div>
-              <span className="text-[10px] font-bold bg-white/8 text-slate-400 border border-white/15 px-2.5 py-1 rounded-full whitespace-nowrap">7 spots left</span>
+              <span className="text-[10px] font-bold bg-white/8 text-slate-400 border border-white/15 px-2.5 py-1 rounded-full whitespace-nowrap">6 spots left</span>
             </div>
-            <SpotsBar total={10} left={7} />
+            <SpotsBar total={7} left={6} />
             <div className="grid grid-cols-2 gap-2 mb-2">
               {[{ label: 'Up to 5 people', price: '$99' }, { label: 'Up to 10 people', price: '$199' }].map((opt, i) => (
                 <div key={i} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
