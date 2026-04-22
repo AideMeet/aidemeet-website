@@ -83,7 +83,7 @@ export default function HowItWorks() {
               Ready to Transform Your Meetings?
             </h3>
             <p className="text-gray-600 mb-6">
-              Join 50+ professionals already on the waitlist. Launch in 16 weeks.
+              Join 50+ professionals already on the waitlist.
             </p>
             <button
               onClick={() => {

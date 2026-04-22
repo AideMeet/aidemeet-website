@@ -33,10 +33,7 @@ const faqs = [
     question: 'Is my data secure and private?',
     answer: 'Absolutely. All audio and transcripts are encrypted at rest and in transit (AES-256). You control your data — you can delete it anytime. We are GDPR compliant and offer SOC 2 reports for Enterprise customers. For the highest security, on-premise deployment is available in the Enterprise plan.',
   },
-  {
-    question: 'What is the Ukraine Special Offer?',
-    answer: 'We offer a 40% discount on the Professional plan for users in Ukraine — only $12/month instead of $20. This is our way of supporting local professionals and building a strong user base before expanding globally.',
-  },
+
   {
     question: 'Can I try the Professional plan before paying?',
     answer: 'Yes. The Free plan gives you a solid taste. When you’re ready, you can start a 14‑day free trial of Professional with no credit card required.',

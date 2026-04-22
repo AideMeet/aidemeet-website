@@ -21,7 +21,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed">
-              AI meeting assistant for Sales and HR professionals. Auto-captures every call. Briefs you before the next one. Finds any past promise in seconds. You just show up prepared.
+              AI meeting assistant for Sales professionals. Auto-captures every call. Briefs you before the next one. Finds any past promise in seconds. You just show up and sale.
             </p>
 
             {/* Key Benefits */}
@@ -64,8 +64,8 @@ export default function Hero() {
                 <span className="font-semibold">Tech Startups</span>
                 <span>•</span>
                 <span className="font-semibold">Sales Teams</span>
-                <span>•</span>
-                <span className="font-semibold">HR Departments</span>
+
+
               </div>
             </div>
           </div>

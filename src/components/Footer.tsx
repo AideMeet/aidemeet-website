@@ -25,7 +25,7 @@ export default function Footer() {
               <span className="text-2xl font-bold">AideMeet</span>
             </div>
             <p className="text-gray-400 text-sm">
-              AI meeting assistant for Sales and HR professionals.
+              AI meeting assistant for Sales professionals.
             </p>
           </div>
 
@@ -89,11 +89,7 @@ export default function Footer() {
                   Sales Teams
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  HR & Recruiting
-                </a>
-              </li>
+
               <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Consultants

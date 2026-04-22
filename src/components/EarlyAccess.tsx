@@ -237,8 +237,7 @@ function FounderForm({ plan, chosenOption, onSuccess }: {
               <option>Sales — SDR/BDR</option>
               <option>Sales — Account Executive</option>
               <option>Sales — Manager</option>
-              <option>HR — Recruiter</option>
-              <option>HR — Manager</option>
+
               <option>Account Manager</option>
               <option>Founder / CEO</option>
               <option>Other</option>
@@ -418,9 +417,7 @@ function CorporateForm({ plan, chosenOption, onSuccess }: {
                 <option>VP of Sales</option>
                 <option>Head of Sales</option>
                 <option>Sales Manager</option>
-                <option>Head of HR / People</option>
-                <option>HR Manager</option>
-                <option>Talent Acquisition Lead</option>
+
                 <option>Founder / CEO</option>
                 <option>Other</option>
               </select>

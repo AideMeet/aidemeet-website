@@ -6,13 +6,13 @@ const features = [
   {
     icon: Mic,
     title: 'Automatic Transcription',
-    description: 'Record Zoom, Meet, Teams calls or upload any audio. Get high‑accuracy transcripts in 99+ languages. Perfect for sales calls, interviews, or internal meetings.',
+    description: 'Record Zoom, Meet, Teams calls or upload any audio. Get high‑accuracy transcripts in 99+ languages. Perfect for sales/discovery calls or internal meetings.',
     color: 'bg-blue-100 text-blue-600',
   },
   {
     icon: FileText,
     title: 'Smart Summaries',
-    description: 'AI extracts key points, action items, and decisions right after the call. Customisable for Sales (CRM‑ready) or HR (candidate evaluation).',
+    description: 'AI extracts key points, action items, and decisions right after the call. Customisable for Sales (CRM‑ready).',
     color: 'bg-purple-100 text-purple-600',
   },
   {
@@ -51,7 +51,7 @@ export default function Features() {
             Everything You Need to Never Forget
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Built for Sales and HR professionals who have back-to-back meetings 
+            Built for Sales professionals who have back-to-back meetings
             and can't afford to lose context.
           </p>
         </div>

@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'AideMeet - Your AI Meeting Assistant',
-  description: 'Never forget a client promise or candidate detail again. AI-powered meeting intelligence for Sales and HR professionals.',
+  description: 'Never forget a client promise or candidate detail again. AI-powered meeting intelligence for Sales professionals.',
   keywords: 'AI meeting assistant, sales assistant, HR assistant, meeting notes, transcription, CRM integration',
   authors: [{ name: 'AideMeet' }],
   openGraph: {
