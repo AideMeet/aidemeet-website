@@ -1,51 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Briefcase, CheckCircle, Loader2, Zap, Users, Star, ArrowRight } from 'lucide-react'
-import { EarlyAccessModal } from './EarlyAccess'
-import type { Plan } from './EarlyAccess'
+import { Mail, Briefcase, CheckCircle, Loader2, Zap } from 'lucide-react'
 
-const founderPlan: Plan = {
-  id: 'founder',
-  badge: '⚡ Only 20 Spots',
-  badgeClass: 'bg-white/20 text-white border border-white/30',
-  name: "Founder's Pass",
-  subtitle: 'Personal Early Access',
-  icon: Star,
-  dark: true,
-  options: [
-    { label: '3 Months', price: '$49', note: 'one-time' },
-    { label: '1 Year', price: '$99', note: 'vs $240/yr · best value' },
-  ],
-  features: ['Priority access in 24–48 hours', 'Direct chat with the founder', 'Lifetime "Founder" discount locked in', 'Free upgrade to all future Pro features'],
-  spotsTotal: 20,
-  spotsLeft: 15,
-  cta: 'Reserve My Spot',
-  availability: 'Access in 24–48 hrs',
-  needsCompany: false,
-  needsTeamSize: false,
-}
-
-const alphaPlan: Plan = {
-  id: 'alpha',
-  badge: 'Corporate Early pilot',
-  badgeClass: 'bg-primary-100 text-primary-700',
-  name: 'Alpha Team',
-  subtitle: '30-day pilot · Up to 10 people',
-  icon: Users,
-  dark: false,
-  options: [
-    { label: 'Up to 5 people', price: '$99', note: '60 days · one-time' },
-    { label: 'Up to 10 people', price: '$199', note: '60 days · one-time' },
-  ],
-  features: ['White-glove onboarding & integrations setup', 'Direct influence on product roadmap', 'Request one custom minor feature', '30-day success review call', 'Video testimonial required'],
-  spotsTotal: 7,
-  spotsLeft: 6,
-  cta: 'Apply for Corporate Early pilot',
-  availability: 'Booking now',
-  needsCompany: true,
-  needsTeamSize: true,
-}
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState('')
@@ -53,7 +10,6 @@ export default function WaitlistForm() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
-  const [activePlan, setActivePlan] = useState<Plan | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -111,60 +67,22 @@ export default function WaitlistForm() {
     } finally { setLoading(false) }
   }
 
-  // ── Success: upsell to early access ────────────────────────────────────────
+  // ── Success ──────────────────────────────────────────────────────────────
   if (success) {
     return (
-      <>
-        <div>
-          <div className="text-center pb-6 border-b border-gray-100 mb-6">
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-full mb-3">
-              <CheckCircle className="h-7 w-7 text-green-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">You're on the list!</h3>
-            <p className="text-gray-500 text-sm">We'll email you when AideMeet is ready.</p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-2 mb-4">
-              <Zap className="h-4 w-4 text-primary-500" />
-              <p className="text-sm font-semibold text-gray-800">Want access now? Skip the wait:</p>
-            </div>
-
-            {[founderPlan, alphaPlan].map((plan) => (
-              <button
-                key={plan.id}
-                onClick={() => setActivePlan(plan)}
-                className="w-full flex items-center justify-between rounded-xl border-2 border-gray-100 bg-gray-50 hover:border-primary-300 hover:bg-primary-50 px-4 py-3.5 text-left transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center flex-shrink-0">
-                    <plan.icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 text-sm">{plan.name}</div>
-                    <div className="text-xs text-gray-500">{plan.subtitle}</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-bold text-sm text-primary-600">
-                    from {plan.options[0].price}
-                  </span>
-                  <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </button>
-            ))}
-
-            <button onClick={() => setSuccess(false)}
-              className="w-full text-center text-xs text-gray-400 hover:text-gray-600 pt-2 transition-colors">
-              Or add another email →
-            </button>
-          </div>
+      <div className="text-center py-4">
+        <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-full mb-4">
+          <CheckCircle className="h-7 w-7 text-green-600" />
         </div>
-
-        {activePlan && (
-          <EarlyAccessModal plan={activePlan} selectedOptionIdx={0} onClose={() => setActivePlan(null)} />
-        )}
-      </>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">You\'re on the list!</h3>
+        <p className="text-gray-500 text-sm mb-6">We\'ll be in touch when AideMeet is ready for you.</p>
+        <button
+          onClick={() => setSuccess(false)}
+          className="text-sm text-primary-600 hover:text-primary-700 font-medium"
+        >
+          Add another email →
+        </button>
+      </div>
     )
   }
 
