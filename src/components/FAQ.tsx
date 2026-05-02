@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: 'Which meeting platforms do you support?',
-    answer: 'We support Zoom, Google Meet, and Microsoft Teams via a bot that joins the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly or use our mobile/desktop recorder (coming soon).',
+    answer: 'We support Zoom, Google Meet, and Microsoft Teams via a bot that joins the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly.',
   },
   {
     question: 'Is there a free plan? What are its limits?',
@@ -31,7 +31,7 @@ const faqs = [
 
   {
     question: 'Is my data secure and private?',
-    answer: 'Absolutely. All audio and transcripts are encrypted at rest and in transit (AES-256). You control your data — you can delete it anytime. We are GDPR compliant and offer SOC 2 reports for Enterprise customers. For the highest security, on-premise deployment is available in the Enterprise plan.',
+    answer: 'Absolutely. All audio and transcripts are encrypted at rest and in transit (AES-256). You control your data — you can delete it anytime. We are GDPR compliant and offer SOC 2 reports for Enterprise customers.',
   },
 
   {
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: 'What are the requirements for the Teams plan?',
-    answer: 'Teams plan requires a minimum of 5 users. It includes everything in Professional, plus a shared team knowledge base, analytics dashboard, centralized billing, admin panel, SSO, priority support (4h response), and an onboarding call with a Customer Success Manager.',
+    answer: 'Teams plan requires a minimum of 5 users. It includes everything in Professional, plus a shared team knowledge base, analytics dashboard, centralized billing, admin panel, SSO, priority support (4h response), and an onboarding call.',
   },
 
   {

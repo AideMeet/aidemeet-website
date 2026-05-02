@@ -85,15 +85,13 @@ export default function HowItWorks() {
             <p className="text-gray-600 mb-6">
               Join 50+ professionals already on the waitlist.
             </p>
-            <button
-              onClick={() => {
-                const element = document.getElementById('early-access')
-                element?.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="btn-primary text-lg"
-            >
-              Join the Waitlist
-            </button>
+           <button
+                onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[15px] transition-all"
+                style={{ background: '#fff', color: '#1D4ED8', border: '1.5px solid rgba(37,99,235,0.25)' }}
+              >
+                Get Early Access →
+              </button>
           </div>
         </div>
       </div>
