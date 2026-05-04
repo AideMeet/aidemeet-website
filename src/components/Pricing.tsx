@@ -2,7 +2,7 @@
 
 import { Check, Gift } from 'lucide-react'
 
-const CALENDLY = 'https://calendly.com/victoria-werner/demo'
+const CALENDLY = 'https://calendly.com/victoria-ashford/demo'
 
 const PLANS = [
   {

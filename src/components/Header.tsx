@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
-const CALENDLY = 'https://calendly.com/victoria-werner/demo'
+const CALENDLY = 'https://calendly.com/victoria-ashford/demo'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

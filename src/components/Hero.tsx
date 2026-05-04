@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { ArrowRight, Star } from 'lucide-react'
 
-const CALENDLY = 'https://calendly.com/victoria-werner/demo'
+const CALENDLY = 'https://calendly.com/victoria-ashford/demo'
 
 // ── Shared data ──────────────────────────────────────────────────────
 

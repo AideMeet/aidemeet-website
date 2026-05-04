@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import Problem from '@/components/Problem'
 import WhyNotCompetitors from '@/components/WhyNotCompetitors'
 import Features from '@/components/Features'
+import Founders from '@/components/Founders';
 import EarlyAccess from '@/components/EarlyAccess'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
@@ -18,6 +19,7 @@ export default function Home() {
         <WhyNotCompetitors />
       </div>
       <Features />
+      <Founders />
       <EarlyAccess />
       <Pricing />
       <FAQ />

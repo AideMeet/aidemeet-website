@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle, ArrowRight, Loader2 } from 'lucide-react'
 
-const CALENDLY = 'https://calendly.com/victoria-werner/demo'
+const CALENDLY = 'https://calendly.com/victoria-ashford/demo'
 
 /* ── Google Sheets helper ──────────────────────────────────────────── */
 // FIX: use text/plain instead of application/json — the latter triggers a CORS preflight
