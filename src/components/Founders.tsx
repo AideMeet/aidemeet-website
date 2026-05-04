@@ -5,68 +5,76 @@ import { ArrowUpRight, Mail } from 'lucide-react'
 
 const FOUNDERS = [
   {
-    name: 'Victoria Werner',
+    name: 'Victoria Ashford',
     role: 'CEO & Founder',
-    tagline: 'Spent years closing deals, then built the unfair advantage she never had.',
+    tagline:
+      'Ex‑tech-sales leader who turned pipeline chaos into predictable revenue. Spent years closing deals, then built the unfair advantage she never had.',
     credentials: ['GTM & Sales Strategy', 'Partnerships', 'Revenue Growth'],
     photo: '/Victoria_s_photo.jpeg',
     contact: { type: 'email' as const, href: 'mailto:victoria@aidemeet.com', label: 'victoria@aidemeet.com' },
     accentColor: '#2563EB',
     accentBg: '#EFF6FF',
     accentBorder: '#BFDBFE',
+    gradientFrom: '#1D4ED8',
+    gradientTo: '#3B82F6',
   },
   {
     name: 'Muhammad Saqib',
     role: 'CTO & Co-founder',
-    tagline: 'The AI infrastructure powering AideMeet — built by someone who\'s done it before at scale.',
-    credentials: ['10+ yrs AI/ML', 'Backend Systems', 'Distributed Infra'],
+    tagline:
+      'Architected RAG pipelines and AI knowledge platform at Corbo.ai. Scaled high‑traffic backends for Sozie and Fayvo. 10+ years of production AI — the engine of AideMeet.',
+    credentials: ['Python & AI/ML', 'AWS & Infra', 'RAG Pipelines'],
     photo: '/Muhammad_s_photo.jpeg',
     contact: { type: 'linkedin' as const, href: 'http://linkedin.com/in/saqirana', label: 'linkedin.com/in/saqirana' },
     accentColor: '#7C3AED',
     accentBg: '#F5F3FF',
     accentBorder: '#DDD6FE',
+    gradientFrom: '#6D28D9',
+    gradientTo: '#8B5CF6',
   },
   {
     name: 'Alex Ustinov',
     role: 'Frontend Engineer',
-    tagline: 'RingCentral · Wildix · Maropost. Turns hard B2B flows into interfaces people enjoy using.',
-    credentials: ['React & TypeScript', 'Electron', 'B2B Products'],
+    tagline:
+      '10+ years crafting enterprise frontends for RingCentral, Wildix, and Maropost — platforms with millions of users. Turns heavyweight B2B workflows into interfaces reps actually enjoy.',
+    credentials: ['React & TypeScript', 'Electron', 'Enterprise UX'],
     photo: '/Alex_s_photo.jpeg',
     contact: { type: 'linkedin' as const, href: 'https://ua.linkedin.com/in/alexander-ustinov-3909a05', label: 'LinkedIn profile' },
     accentColor: '#0891B2',
     accentBg: '#ECFEFF',
     accentBorder: '#A5F3FC',
+    gradientFrom: '#0E7490',
+    gradientTo: '#06B6D4',
   },
 ]
 
 export default function Founders() {
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="team" className="py-16 bg-white">
       <div className="section-container">
-
-        {/* Header — matches Features/Pricing header pattern */}
-        <div className="text-center mb-12">
+        {/* Header */}
+        <div className="text-center mb-10">
           <div
             className="inline-block mb-4 text-sm font-semibold px-4 py-1.5 rounded-full"
             style={{ background: '#EFF6FF', color: '#2563EB', border: '1px solid #BFDBFE' }}
           >
             The Team
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-3" style={{ color: '#0F172A' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#0F172A' }}>
             Built by people who've{' '}
             <span style={{ color: '#2563EB' }}>lived the problem.</span>
           </h2>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: '#64748B' }}>
+          <p className="text-base max-w-lg mx-auto" style={{ color: '#64748B' }}>
             Not researchers. Operators who've been in the room where deals are won and lost.
           </p>
         </div>
 
-        {/* Cards — 3 columns, matching Features grid pattern */}
-        <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+        {/* Cards — wider grid with taller photos */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {FOUNDERS.map((f) => (
             <div
               key={f.name}
-              className="rounded-2xl overflow-hidden flex flex-col"
+              className="rounded-2xl overflow-hidden flex flex-col group"
               style={{
                 background: '#FAFBFF',
                 border: '1px solid #E8F0FF',
@@ -75,8 +83,8 @@ export default function Founders() {
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement
-                el.style.boxShadow = '0 12px 32px rgba(37,99,235,0.1)'
-                el.style.transform = 'translateY(-2px)'
+                el.style.boxShadow = '0 12px 32px rgba(37,99,235,0.12)'
+                el.style.transform = 'translateY(-3px)'
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLElement
@@ -84,47 +92,51 @@ export default function Founders() {
                 el.style.transform = 'translateY(0)'
               }}
             >
-              {/* Photo — full width, face-safe height */}
-              <div style={{ position: 'relative', width: '100%', height: 200, background: f.accentBg, flexShrink: 0 }}>
-                <Image
-                  src={f.photo}
-                  alt={f.name}
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
-                  sizes="(max-width: 768px) 100vw, 340px"
-                />
-                {/* Soft bottom fade */}
+              {/* Accent bar + photo */}
+              <div style={{ position: 'relative', width: '100%', flexShrink: 0 }}>
                 <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0, height: 56,
-                  background: 'linear-gradient(to top, #FAFBFF, transparent)',
+                  height: 3,
+                  background: `linear-gradient(90deg, ${f.gradientFrom}, ${f.gradientTo})`,
+                  width: '100%',
                 }} />
+                {/* Photo area — increased height */}
+                <div style={{ position: 'relative', width: '100%', height: 240, background: f.accentBg }}>
+                  <Image
+                    src={f.photo}
+                    alt={f.name}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                    sizes="(max-width: 768px) 100vw, 360px"
+                  />
+                  {/* Bottom fade */}
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0, height: 48,
+                    background: 'linear-gradient(to top, #FAFBFF, transparent)',
+                  }} />
+                </div>
               </div>
 
               {/* Content */}
-              <div className="px-5 pb-5 flex flex-col gap-3 flex-1" style={{ marginTop: -4 }}>
-
-                {/* Name + role */}
+              <div className="px-4 pb-4 flex flex-col gap-2.5 flex-1" style={{ marginTop: -2 }}>
                 <div>
-                  <h3 className="font-bold text-base" style={{ color: '#0F172A' }}>{f.name}</h3>
+                  <h3 className="font-bold text-sm" style={{ color: '#0F172A' }}>{f.name}</h3>
                   <span
-                    className="inline-block text-xs font-semibold mt-0.5 px-2.5 py-0.5 rounded-full"
+                    className="inline-block text-[11px] font-semibold mt-1 px-2 py-0.5 rounded-full"
                     style={{ background: f.accentBg, color: f.accentColor, border: `1px solid ${f.accentBorder}` }}
                   >
                     {f.role}
                   </span>
                 </div>
 
-                {/* Tagline */}
-                <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>
+                <p className="text-[12.5px] leading-relaxed" style={{ color: '#475569' }}>
                   {f.tagline}
                 </p>
 
-                {/* Credentials */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1">
                   {f.credentials.map(c => (
                     <span
                       key={c}
-                      className="text-xs px-2 py-0.5 rounded-md font-medium"
+                      className="text-[11px] px-2 py-0.5 rounded-md font-medium"
                       style={{ background: f.accentBg, color: f.accentColor }}
                     >
                       {c}
@@ -132,13 +144,12 @@ export default function Founders() {
                   ))}
                 </div>
 
-                {/* Contact — subtle, at the bottom */}
-                <div className="mt-auto pt-3" style={{ borderTop: '1px solid #F1F5F9' }}>
+                <div className="mt-auto pt-2.5" style={{ borderTop: '1px solid #F1F5F9' }}>
                   <a
                     href={f.contact.href}
                     target={f.contact.type === 'linkedin' ? '_blank' : undefined}
                     rel={f.contact.type === 'linkedin' ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center gap-1 text-xs font-medium"
+                    className="inline-flex items-center gap-1 text-[11px] font-medium"
                     style={{ color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = f.accentColor)}
                     onMouseLeave={e => (e.currentTarget.style.color = '#94A3B8')}
@@ -152,12 +163,10 @@ export default function Founders() {
                     <ArrowUpRight className="h-2.5 w-2.5 opacity-60" />
                   </a>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )
