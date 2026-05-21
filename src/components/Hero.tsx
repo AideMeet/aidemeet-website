@@ -651,7 +651,7 @@ export default function Hero() {
               style={{ background: 'rgba(37,99,235,0.08)', color: '#2563EB', border: '1px solid rgba(37,99,235,0.2)' }}
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Access opens May 18 · Limited pilot spots
+              Access opens June 1 · Limited pilot spots
             </div>
 
             <div className="space-y-4">
