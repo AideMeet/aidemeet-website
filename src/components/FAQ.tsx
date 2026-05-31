@@ -6,11 +6,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react'
 const faqs = [
    {
     question: 'How does AideMeet work?',
-    answer: 'AideMeet connects to your calendar (Google/Outlook) and automatically joins your Zoom, Meet, or Teams calls. It records, transcribes, and generates a smart summary with action items. Before your next meeting with the same person, you get a pre-meeting brief with all relevant context — past promises, open tasks, and suggested talking points. You can export everything to your CRM with one click.',
+    answer: 'AideMeet connects to your calendar (Google) and automatically joins your Zoom or Meet calls. It records, transcribes, and generates a smart summary with action items. Before your next meeting with the same person, you get a pre-meeting brief with all relevant context — past promises, open tasks, and suggested talking points. You can export everything to your CRM with one click.',
   },
   {
     question: 'Which meeting platforms do you support?',
-    answer: 'We support Zoom, Google Meet, and Microsoft Teams via a bot that joins the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly.',
+    answer: 'We support Zoom and Google Meet via a bot that joins the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly.',
   },
   {
     question: 'Is there a free plan? What are its limits?',
@@ -21,8 +21,8 @@ const faqs = [
     answer: 'We focus on long-term personal memory. AideMeet builds a profile for every person you meet — linking all conversations, promises, and tasks. You get pre-meeting briefs automatically, a notes-only mode (no bot in the room), and a smart follow-up tracker that reminds you of commitments. We’re built for humans, not for surveillance.',
   },
   {
-    question: 'Which CRMs do you integrate with?',
-    answer: 'Currently: HubSpot, Salesforce, and Pipedrive (available in Professional and higher plans). Enterprise customers can request custom integrations (MS Dynamics, etc.) via our API or dedicated support.',
+  question: 'Which CRMs do you integrate with?',
+  answer: 'CSV-based export – compatible with HubSpot, Salesforce, Pipedrive, and any CRM that supports CSV import. One-click export, then import manually into your CRM. Native API integration is coming soon (roadmap Q4 2026).',
   },
   {
     question: 'Do you support languages other than English?',
@@ -31,16 +31,12 @@ const faqs = [
 
   {
     question: 'Is my data secure and private?',
-    answer: 'Absolutely. All audio and transcripts are encrypted at rest and in transit (AES-256). You control your data — you can delete it anytime. We are GDPR compliant and offer SOC 2 reports for Enterprise customers.',
+    answer: 'Absolutely. All audio and transcripts are encrypted at rest and in transit (AES-256). You control your data — you can delete it anytime. We are GDPR compliant.',
   },
 
   {
     question: 'Can I try the Professional plan before paying?',
     answer: 'Yes. The Free plan gives you a solid taste. When you’re ready, you can start a 14‑day free trial of Professional with no credit card required.',
-  },
-  {
-    question: 'What are the requirements for the Teams plan?',
-    answer: 'Teams plan requires a minimum of 5 users. It includes everything in Professional, plus a shared team knowledge base, analytics dashboard, centralized billing, admin panel, SSO, priority support (4h response), and an onboarding call.',
   },
 
   {

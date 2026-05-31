@@ -2,6 +2,8 @@
 
 import { FileText, Calendar, Search, Zap, Shield, Brain } from 'lucide-react'
 
+const APP_URL = 'https://app.aidemeet.com'
+
 const FEATURES = [
   {
     icon: Brain,
@@ -9,13 +11,17 @@ const FEATURES = [
     description: 'AideMeet builds a complete history for every prospect — linking all calls, objections, promises, and context. Your rep never asks "what did they say last time?" again.',
     color: 'bg-purple-100 text-purple-600',
     tag: 'Core',
+    tagColor: '#7C3AED',
+    tagBg: '#F5F3FF',
   },
   {
     icon: Calendar,
     title: 'Pre-Meeting Briefs — Auto-Delivered',
     description: '1 hour before every call, your rep gets a one-page brief: past promises, open objections, deal stage, and suggested questions. Preparation on autopilot.',
     color: 'bg-green-100 text-green-600',
-    tag: 'Fan Favourite',
+    tag: 'Most Used',
+    tagColor: '#059669',
+    tagBg: '#ECFDF5',
   },
   {
     icon: Zap,
@@ -23,6 +29,8 @@ const FEATURES = [
     description: 'After every call, AI extracts action items, deal updates, and key context — and pushes them to HubSpot, Salesforce, or Pipedrive. Zero manual entry.',
     color: 'bg-blue-100 text-blue-600',
     tag: 'Time Saver',
+    tagColor: '#2563EB',
+    tagBg: '#EFF6FF',
   },
   {
     icon: FileText,
@@ -30,6 +38,8 @@ const FEATURES = [
     description: 'Instantly get a personalised follow-up email and LinkedIn message — grounded in what was actually said on the call. Send in one click.',
     color: 'bg-pink-100 text-pink-600',
     tag: 'New',
+    tagColor: '#DB2777',
+    tagBg: '#FDF2F8',
   },
   {
     icon: Search,
@@ -37,6 +47,8 @@ const FEATURES = [
     description: '"What did Ivan say about the budget?" Our AI searches across your entire call history and gives you the exact quote and context in seconds.',
     color: 'bg-orange-100 text-orange-600',
     tag: '',
+    tagColor: '',
+    tagBg: '',
   },
   {
     icon: Shield,
@@ -44,6 +56,8 @@ const FEATURES = [
     description: 'GDPR compliant, end-to-end encrypted, multiple consent modes (voice notice, participant consent, self-responsible). Enterprise: SOC 2, on-premise.',
     color: 'bg-indigo-100 text-indigo-600',
     tag: '',
+    tagColor: '',
+    tagBg: '',
   },
 ]
 
@@ -71,7 +85,7 @@ export default function Features() {
           {FEATURES.map((feature, index) => (
             <div
               key={index}
-              className="rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group"
+              className="rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
               style={{ background: '#FAFBFF', border: '1px solid #E8F0FF' }}
             >
               <div className="flex items-start justify-between mb-4">
@@ -79,7 +93,10 @@ export default function Features() {
                   <feature.icon className="h-5 w-5" />
                 </div>
                 {feature.tag && (
-                  <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: '#EFF6FF', color: '#2563EB' }}>
+                  <span
+                    className="text-xs font-bold px-2.5 py-1 rounded-full"
+                    style={{ background: feature.tagBg, color: feature.tagColor }}
+                  >
                     {feature.tag}
                   </span>
                 )}
@@ -95,12 +112,14 @@ export default function Features() {
         </div>
 
         <div className="text-center mt-10">
-          <button
-            onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary text-base"
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-base inline-block"
           >
-            Start Free Pilot
-          </button>
+            Try It Free
+          </a>
         </div>
       </div>
     </section>

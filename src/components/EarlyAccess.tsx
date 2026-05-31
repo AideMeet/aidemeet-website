@@ -115,7 +115,7 @@ export default function EarlyAccess() {
             </h2>
 
             <p className="text-xl leading-relaxed" style={{ color: '#A5C3F0' }}>
-              This isn't a waitlist. It's a founder-led pilot — we set up AideMeet for your team,
+              A founder-led pilot — we set up AideMeet for your team,
               integrate your CRM, and guarantee your reps start closing faster in 2 weeks.
             </p>
 

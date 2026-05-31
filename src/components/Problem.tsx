@@ -1,23 +1,25 @@
 'use client'
 
+import { Clock, FileText, HelpCircle, TrendingDown, Zap, Target, Brain, Trophy } from 'lucide-react'
+
 const BEFORE = [
-  { emoji: '⏱️', stat: '15–30 min',   text: 'prepping for calls — digging through old emails' },
-  { emoji: '📝', stat: '20–40 min',   text: 'writing notes after each call instead of following up' },
-  { emoji: '🤦', stat: 'Every call',  text: '"Wait, what did they say about budget last time?"' },
-  { emoji: '💸', stat: 'One slip',    text: 'A forgotten objection handled poorly = a lost deal' },
+  { Icon: Clock,       stat: '15–30 min',  text: 'prepping for calls — digging through old emails and notes' },
+  { Icon: FileText,    stat: '20–40 min',  text: 'writing up notes after each call instead of following up' },
+  { Icon: HelpCircle,  stat: 'Every call', text: '"Wait, what did they say about budget last time?"' },
+  { Icon: TrendingDown,stat: 'One slip',   text: 'A forgotten objection handled poorly loses the deal' },
 ]
 
 const AFTER = [
-  { emoji: '⚡', stat: '30 min before', text: 'every call — AI brief ready, full context, no digging' },
-  { emoji: '🎯', stat: 'Auto-tracked',  text: 'every commitment, action item, and promised follow-up' },
-  { emoji: '🤖', stat: 'Instant',        text: '"What did Alex say about budget?" → AI answers in seconds' },
-  { emoji: '🏆', stat: 'Every rep',      text: 'performs like your best rep — consistently, not occasionally' },
+  { Icon: Zap,    stat: '30 min before', text: 'every call — AI brief ready, full context, no digging' },
+  { Icon: Target, stat: 'Auto-tracked',  text: 'every commitment, action item, and promised follow-up' },
+  { Icon: Brain,  stat: 'Instant',       text: '"What did Alex say about budget?" — AI answers in seconds' },
+  { Icon: Trophy, stat: 'Every rep',     text: 'performs like your best rep, consistently' },
 ]
 
 const STATS = [
-  { value: '20+',     label: 'demos missed per rep/month on admin alone' },
-  { value: '5,000%',  label: 'ROI on one recovered deal' },
-  { value: '$20',     label: 'per person per month' },
+  { value: '20+',    label: 'demos missed per rep/month on admin alone', highlight: false },
+  { value: '5,000%', label: 'ROI on one recovered deal',                  highlight: true  },
+  { value: '$20',    label: 'per person per month',                        highlight: false },
 ]
 
 export default function Problem() {
@@ -48,18 +50,21 @@ export default function Problem() {
 
           {/* Before */}
           <div className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #FECACA' }}>
-            <div className="px-6 py-4" style={{ background: '#FEF2F2' }}>
-              <div className="flex items-center gap-2">
-                <span className="text-lg">😩</span>
-                <span className="font-bold text-base" style={{ color: '#DC2626' }}>Right now, your reps…</span>
-              </div>
+            <div className="px-6 py-4 flex items-center gap-3" style={{ background: '#FEF2F2', borderBottom: '1px solid #FECACA' }}>
+              <TrendingDown className="w-4 h-4" style={{ color: '#DC2626' }} />
+              <span className="font-bold text-sm" style={{ color: '#DC2626' }}>Right now, your reps…</span>
             </div>
             <div className="p-6 space-y-4" style={{ background: '#FFF5F5' }}>
               {BEFORE.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="text-xl flex-shrink-0 mt-0.5">{item.emoji}</span>
+                  <div
+                    className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
+                    style={{ background: '#FEE2E2' }}
+                  >
+                    <item.Icon className="w-4 h-4" style={{ color: '#DC2626' }} />
+                  </div>
                   <div>
-                    <span className="text-sm font-bold" style={{ color: '#DC2626' }}>{item.stat} </span>
+                    <span className="text-sm font-bold" style={{ color: '#DC2626' }}>{item.stat} — </span>
                     <span className="text-sm" style={{ color: '#7F1D1D' }}>{item.text}</span>
                   </div>
                 </div>
@@ -69,18 +74,21 @@ export default function Problem() {
 
           {/* After */}
           <div className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #A7F3D0' }}>
-            <div className="px-6 py-4" style={{ background: '#ECFDF5' }}>
-              <div className="flex items-center gap-2">
-                <span className="text-lg">🚀</span>
-                <span className="font-bold text-base" style={{ color: '#065F46' }}>With AideMeet, every rep…</span>
-              </div>
+            <div className="px-6 py-4 flex items-center gap-3" style={{ background: '#ECFDF5', borderBottom: '1px solid #A7F3D0' }}>
+              <Trophy className="w-4 h-4" style={{ color: '#065F46' }} />
+              <span className="font-bold text-sm" style={{ color: '#065F46' }}>With AideMeet, every rep…</span>
             </div>
             <div className="p-6 space-y-4" style={{ background: '#F0FDF9' }}>
               {AFTER.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="text-xl flex-shrink-0 mt-0.5">{item.emoji}</span>
+                  <div
+                    className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
+                    style={{ background: '#D1FAE5' }}
+                  >
+                    <item.Icon className="w-4 h-4" style={{ color: '#059669' }} />
+                  </div>
                   <div>
-                    <span className="text-sm font-bold" style={{ color: '#059669' }}>{item.stat} </span>
+                    <span className="text-sm font-bold" style={{ color: '#059669' }}>{item.stat} — </span>
                     <span className="text-sm" style={{ color: '#064E3B' }}>{item.text}</span>
                   </div>
                 </div>
@@ -108,7 +116,7 @@ export default function Problem() {
               <div key={i} className="text-center">
                 <div
                   className="text-3xl md:text-4xl font-bold mb-1"
-                  style={{ color: i === 1 ? '#4ADE80' : '#93C5FD' }}
+                  style={{ color: s.highlight ? '#4ADE80' : '#93C5FD' }}
                 >
                   {s.value}
                 </div>

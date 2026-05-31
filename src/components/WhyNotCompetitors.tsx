@@ -1,10 +1,12 @@
 'use client'
 
-/* Columns: AideMeet, Gong, Otter, Fireflies, Fathom, Read.ai */
+import { Check, X, Minus } from 'lucide-react'
+
+const APP_URL = 'https://app.aidemeet.com'
 
 const FEATURES = [
   {
-    feature: 'What they do',
+    feature: 'Focus',
     aidemeet: 'Revenue Memory System — deal context across every call',
     gong:      'Call recording + conversation analytics',
     otter:     'Meeting transcription + basic notes',
@@ -14,44 +16,43 @@ const FEATURES = [
   },
   {
     feature: 'Pre-meeting brief',
-    aidemeet: '✅ Auto-delivered 1h before every call',
-    gong:      '❌ Not available',
-    otter:     '❌ Not available',
-    fireflies: '❌ Not available',
-    fathom:    '❌ Not available',
-    readai:    '⚠️ Limited',
+    aidemeet: 'yes:Auto-delivered 1h before every call',
+    gong:      'no:Not available',
+    otter:     'no:Not available',
+    fireflies: 'no:Not available',
+    fathom:    'no:Not available',
+    readai:    'partial:Limited',
   },
   {
     feature: 'Deal memory across calls',
-    aidemeet: '✅ Full history: context, objections, promises',
-    gong:      '⚠️ Analytics only',
-    otter:     '❌ Each call isolated',
-    fireflies: '❌ Each call isolated',
-    fathom:    '❌ Each call isolated',
-    readai:    '⚠️ Search only',
+    aidemeet: 'yes:Full history: context, objections, promises',
+    gong:      'partial:Analytics only',
+    otter:     'no:Each call isolated',
+    fireflies: 'no:Each call isolated',
+    fathom:    'no:Each call isolated',
+    readai:    'partial:Search only',
   },
   {
     feature: 'CRM auto-sync',
-    aidemeet: '✅ HubSpot, Salesforce, Pipedrive',
-    gong:      '✅ Yes (enterprise pricing)',
-    otter:     '❌ No',
-    fireflies: '⚠️ Limited',
-    fathom:    '✅ HubSpot, Salesforce',
-    readai:    '⚠️ Limited',
+    aidemeet: 'yes:HubSpot, Salesforce, Pipedrive',
+    gong:      'yes:Yes (enterprise pricing)',
+    otter:     'no:No',
+    fireflies: 'partial:Limited',
+    fathom:    'yes:HubSpot, Salesforce',
+    readai:    'partial:Limited',
   },
   {
     feature: 'AI follow-up drafts',
-    aidemeet: '✅ Email + LinkedIn, personalised per call',
-    gong:      '❌ No',
-    otter:     '❌ No',
-    fireflies: '❌ No',
-    fathom:    '⚠️ Basic',
-    readai:    '⚠️ Basic',
+    aidemeet: 'yes:Email + LinkedIn, personalised per call',
+    gong:      'no:No',
+    otter:     'no:No',
+    fireflies: 'no:No',
+    fathom:    'partial:Basic',
+    readai:    'partial:Basic',
   },
-
   {
     feature: 'Built for',
-    aidemeet: '🎯 SMB & mid-market sales teams',
+    aidemeet: 'SMB & mid-market sales teams',
     gong:      'Enterprise sales orgs',
     otter:     'Anyone with meetings',
     fireflies: 'Anyone with meetings',
@@ -62,17 +63,41 @@ const FEATURES = [
 
 const COMPETITORS = [
   { key: 'gong',      label: 'Gong',      sub: 'Enterprise' },
-  { key: 'otter',     label: 'Otter',     sub: 'Basic' },
-  { key: 'fireflies', label: 'Fireflies', sub: 'General' },
+  { key: 'otter',     label: 'Otter',     sub: 'General'    },
+  { key: 'fireflies', label: 'Fireflies', sub: 'General'    },
   { key: 'fathom',    label: 'Fathom',    sub: 'Individual' },
-  { key: 'readai',    label: 'Read.ai',   sub: 'General' },
+  { key: 'readai',    label: 'Read.ai',   sub: 'General'    },
 ]
 
-function cellColor(val: string) {
-  if (val.startsWith('✅')) return '#16A34A'
-  if (val.startsWith('❌')) return '#DC2626'
-  if (val.startsWith('⚠️')) return '#D97706'
-  return '#64748B'
+function CellContent({ value }: { value: string }) {
+  if (value.startsWith('yes:')) {
+    const text = value.slice(4)
+    return (
+      <div className="flex items-start gap-1.5 justify-center">
+        <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: '#16A34A' }} />
+        <span className="text-xs font-medium" style={{ color: '#15803D' }}>{text}</span>
+      </div>
+    )
+  }
+  if (value.startsWith('no:')) {
+    const text = value.slice(3)
+    return (
+      <div className="flex items-start gap-1.5 justify-center">
+        <X className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: '#DC2626' }} />
+        <span className="text-xs" style={{ color: '#DC2626' }}>{text}</span>
+      </div>
+    )
+  }
+  if (value.startsWith('partial:')) {
+    const text = value.slice(8)
+    return (
+      <div className="flex items-start gap-1.5 justify-center">
+        <Minus className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: '#D97706' }} />
+        <span className="text-xs" style={{ color: '#D97706' }}>{text}</span>
+      </div>
+    )
+  }
+  return <span className="text-xs" style={{ color: '#64748B' }}>{value}</span>
 }
 
 export default function WhyNotCompetitors() {
@@ -122,7 +147,7 @@ export default function WhyNotCompetitors() {
               <div className="px-4 py-3.5 text-center" style={{ background: '#EFF6FF' }}>
                 <div className="font-bold text-sm" style={{ color: '#1D4ED8' }}>AideMeet</div>
                 <div className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>Sales-first</div>
-                <div className="mt-1 inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-600 text-white">← Us</div>
+                <div className="mt-1 inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-600 text-white">Us</div>
               </div>
 
               {COMPETITORS.map(c => (
@@ -150,17 +175,13 @@ export default function WhyNotCompetitors() {
 
                 {/* AideMeet */}
                 <div className="px-4 py-3.5 text-center" style={{ background: '#EFF6FF' }}>
-                  <span className="text-xs font-semibold" style={{ color: cellColor(row.aidemeet) }}>
-                    {row.aidemeet}
-                  </span>
+                  <CellContent value={row.aidemeet} />
                 </div>
 
                 {/* Competitors */}
                 {COMPETITORS.map(c => (
                   <div key={c.key} className="px-4 py-3.5 text-center">
-                    <span className="text-xs" style={{ color: cellColor((row as any)[c.key]) }}>
-                      {(row as any)[c.key]}
-                    </span>
+                    <CellContent value={(row as Record<string, string>)[c.key]} />
                   </div>
                 ))}
               </div>
@@ -173,8 +194,10 @@ export default function WhyNotCompetitors() {
           <p className="text-base mb-5" style={{ color: '#64748B' }}>
             Stop paying enterprise prices for a tool that forgets your deals the moment the call ends.
           </p>
-          <button
-            onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white transition-all"
             style={{
               background: 'linear-gradient(135deg,#1D4ED8,#3B82F6)',
@@ -183,7 +206,7 @@ export default function WhyNotCompetitors() {
             }}
           >
             See AideMeet in Action →
-          </button>
+          </a>
         </div>
       </div>
     </section>
