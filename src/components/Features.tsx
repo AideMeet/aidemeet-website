@@ -53,7 +53,7 @@ const FEATURES = [
   {
     icon: Shield,
     title: 'Built for Sales Compliance',
-    description: 'GDPR compliant, end-to-end encrypted, multiple consent modes (voice notice, participant consent, self-responsible). Enterprise: SOC 2, on-premise.',
+    description: 'GDPR compliant, end-to-end encrypted, multiple consent modes (voice notice, participant consent, self-responsible).',
     color: 'bg-indigo-100 text-indigo-600',
     tag: '',
     tagColor: '',
