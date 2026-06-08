@@ -118,12 +118,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://app.aidemeet.com/privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://app.aidemeet.com/terms-of-service" className="hover:text-white transition-colors">
                   Terms of Service
                 </a>
               </li>
