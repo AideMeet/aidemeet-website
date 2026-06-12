@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: 'Which meeting platforms do you support?',
-    answer: 'We support Zoom and Google Meet via a bot that joins the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly.',
+    answer: 'We support Zoom, Google Meet and Microsoft Teams via a chrome extension that records the call. For in-person meetings, phone calls, or any other source, you can upload an audio file directly.',
   },
   {
     question: 'Is there a free plan? What are its limits?',

@@ -129,7 +129,7 @@ export default function PilotCTA() {
             {/* Pricing tiers */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 24 }}>
               {[
-                { label: '5-person team', price: '$99', note: '/mo, forever', strike: '$100/mo' },
+                { label: '5-person team', price: '$99', note: '/mo, forever', strike: '$105/mo' },
                 { label: '10-person team', price: '$199', note: '/mo, forever', strike: '$350/mo' },
               ].map((tier) => (
                 <div
