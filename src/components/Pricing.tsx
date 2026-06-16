@@ -114,7 +114,7 @@ export default function Pricing() {
                 width: 7, height: 7, borderRadius: '50%', background: '#22C55E',
                 display: 'inline-block', flexShrink: 0,
               }} />
-              Founding team pilot — 5 spots
+              Founding team pilot — 5 spots (43% OFF)
             </div>
             <span style={{ fontSize: 13, color: '#475569' }}>
               First 5 teams get permanently locked pricing + founder onboarding.
@@ -122,7 +122,7 @@ export default function Pricing() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             {[
-              { seats: '5 seats', price: '$99/mo', strike: '$100' },
+              { seats: '5 seats', price: '$99/mo', strike: '$175' },
               { seats: '10 seats', price: '$199/mo', strike: '$350' },
             ].map(t => (
               <div key={t.seats} style={{ textAlign: 'center' }}>

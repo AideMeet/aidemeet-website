@@ -120,7 +120,7 @@ export default function PilotCTA() {
               fontSize: 20, fontWeight: 700, color: '#F1F5F9',
               letterSpacing: '-0.02em', margin: '0 0 6px',
             }}>
-              Get your pilot spot
+              Get your pilot spot - 43% OFF
             </h3>
             <p style={{ fontSize: 13.5, color: '#64748B', margin: '0 0 24px' }}>
               30-min call with Victoria. We handle everything.
@@ -129,7 +129,7 @@ export default function PilotCTA() {
             {/* Pricing tiers */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 24 }}>
               {[
-                { label: '5-person team', price: '$99', note: '/mo, forever', strike: '$105/mo' },
+                { label: '5-person team', price: '$99', note: '/mo, forever', strike: '$175/mo' },
                 { label: '10-person team', price: '$199', note: '/mo, forever', strike: '$350/mo' },
               ].map((tier) => (
                 <div
